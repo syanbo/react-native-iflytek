@@ -17,6 +17,30 @@ const Iflytek = NativeModules.Iflytek
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Iflytek.multiply(a, b);
+export function init(appID: string) {
+  return Iflytek.init(appID);
+}
+
+export function createSynthesizer(): Promise<string> {
+  return Iflytek.createSynthesizer();
+}
+
+export function startSpeaking(text: string, callback: (e: string, percent?: number, beginPos?: number, endPos?: number) => void) {
+  return Iflytek.startSpeaking(text, callback);
+}
+
+export function stopSpeaking() {
+  return Iflytek.stopSpeaking();
+}
+
+export function pauseSpeaking() {
+  return Iflytek.pauseSpeaking();
+}
+
+export function resumeSpeaking() {
+  return Iflytek.resumeSpeaking();
+}
+
+export function destroy() {
+  return Iflytek.destroy();
 }
